@@ -3,6 +3,9 @@
 </head>
 
 <body>
+    <div class="right">
+        <a href="#">Add project</a>
+    </div>
     {{> projects}}
 </body>
 
@@ -25,17 +28,17 @@
 
 <template name="milestones">
     <div class="milestone">
-        {{milestone}}
+        <h2>{{milestone}}</h2>
         <div class="tasks">
             {{#each tasks}}
-                {{> task}}
+                {{> tasks}}
             {{/each}}
         </div>
     </div>
 </template>
 
-<template name="task">
+<template name="tasks">
     <div class="task">
-        {{task}}
+       <h3>{{task}}</h3>
     </div>
 </template>

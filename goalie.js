@@ -6,11 +6,11 @@ if (Meteor.is_client) {
   };
 
   Template.projects.milestones = function() {
-    return Project.find('milestones');
+    return Project.find('milestones.milestone');
   };
 
   Template.projects.milestones.tasks = function() {
-    return Project.find('milestone.tasks');
+    return Project.find('milestones.tasks');
   };
 
   Template.projects.events = {
@@ -28,6 +28,4 @@ if (Meteor.is_server) {
   });
 }
 
-// Project.insert({projectName: 'Build Goalie', milestones: [{milestone: 'Install Meteor', status: 'done'}, {milestone: 'Write CRUD functionality', status: 'active'}]});
-//Project.remove({projectName: "thing"});
-//Project.insert({projectName: "Do laundry", status: "in progress", milestones: [ {milestone: 'get laundry together', tasks: ['find laundry', 'get laundry card', 'get detergent']}, {milestone: 'fold laundry'}]});
+// Project.insert({projectName: "Do laundry", status: "in progress", milestones: [ {milestone: 'get laundry together', tasks: [ { task: 'find laundry', status: 0}, { task: 'get laundry card', status: 0}, { task: 'get detergent', status: 0} ]}, {milestone: 'fold laundry'}]});
