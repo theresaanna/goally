@@ -1,0 +1,41 @@
+<head>
+  <title>goalie</title>
+</head>
+
+<body>
+    {{> projects}}
+</body>
+
+<template name="projects">
+    {{#each project}}
+        {{> project}}
+    {{/each}}
+</template>
+
+<template name="project">
+  <div class="project">
+    <h1>{{projectName}}</h1>
+    <div class="milestones">
+        {{#each milestones}}
+            {{> milestones}}
+        {{/each}}
+    </div>
+  </div>
+</template>
+
+<template name="milestones">
+    <div class="milestone">
+        {{milestone}}
+        <div class="tasks">
+            {{#each tasks}}
+                {{> task}}
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="task">
+    <div class="task">
+        {{task}}
+    </div>
+</template>
