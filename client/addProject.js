@@ -4,9 +4,8 @@ Template.addProjectLink.events = {
         console.log('hey');
     },
 
-    'click #addProjectForm': function(e) {
+    'click .expand': function(e) {
         e.preventDefault();
-     
-        var container = document.getElementsByName('addProjectFormContainer')[0].id = "open";
+        $('.expandable').toggle();
     }
 };
