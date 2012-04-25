@@ -3,10 +3,8 @@
 </head>
 
 <body>
-    <div class="right">
-        <a href="#">Add project</a>
-    </div>
-    {{> projects}}
+   {{> addProjectLink}}
+   {{> projects}}
 </body>
 
 <template name="projects">
@@ -40,5 +38,48 @@
 <template name="tasks">
     <div class="task">
        <h3>{{task}}</h3>
+    </div>
+</template>
+
+<template name="addProjectLink">
+    <div class="right">
+        <a href="#" id="addProjectForm" class="expand">Add project</a>
+    </div>
+    
+    <div name="addProjectFormContainer" class="expandable">
+        {{> addProject}}
+    </div>
+</template>
+
+<template name="addProject">
+    <div id="addProject">
+    <form>
+        <input type="text" value="Project Name" name="projectName"></input>
+        <fieldset>
+            <legend>Milestones</legend>
+            <input type="text" value="Milestone" name="milestone">
+            <fieldset>
+                <legend>Tasks</legend>
+                <input type="text" value="Task" name="task"/>
+                <input type="text" value="Task" name="task"/>
+                <input type="text" value="Task" name="task"/>
+            </fieldset>
+            <input type="text" value="Milestone" name="milestone">
+             <fieldset>
+                <legend>Tasks</legend>
+                <input type="text" value="Task" name="task"/>
+                <input type="text" value="Task" name="task"/>
+                <input type="text" value="Task" name="task"/>
+            </fieldset>
+            <input type="text" value="Milestone" name="milestone">
+             <fieldset>
+                <legend>Tasks</legend>
+                <input type="text" value="Task" name="task"/>
+                <input type="text" value="Task" name="task"/>
+                <input type="text" value="Task" name="task"/>
+            </fieldset>
+        </fieldset>
+        <submit value="Add project"/>
+    </form>
     </div>
 </template>

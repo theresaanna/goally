@@ -13,13 +13,13 @@ if (Meteor.is_client) {
     return Project.find('milestones.tasks');
   };
 
-  Template.projects.events = {
-    'click .edit' : function () {
+  // Template.projects.events = {
+    //'click .edit' : function () {
       // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  };
+     // if (typeof console !== 'undefined')
+       // console.log("You pressed the button");
+   // }
+  //};
 }
 
 if (Meteor.is_server) {

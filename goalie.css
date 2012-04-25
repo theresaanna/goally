@@ -1,3 +1,11 @@
 .right {
     float: right;
 }
+
+.expandable {
+    display: none;
+}
+
+#open {
+    display: block;
+}
