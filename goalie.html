@@ -1,5 +1,6 @@
 <head>
   <title>goalie</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
 
 <template name="project">
   <div class="project">
-    <h1>{{projectName}}</h1>
+    <h1>{{name}}</h1>
     <div class="milestones">
         {{#each milestones}}
             {{> milestones}}
@@ -26,7 +27,7 @@
 
 <template name="milestones">
     <div class="milestone">
-        <h2>{{milestone}}</h2>
+        <h2>{{name}}</h2>
         <div class="tasks">
             {{#each tasks}}
                 {{> tasks}}
@@ -37,7 +38,7 @@
 
 <template name="tasks">
     <div class="task">
-       <h3>{{task}}</h3>
+       <h3>{{name}}</h3>
     </div>
 </template>
 
@@ -55,31 +56,31 @@
     <div id="addProject">
     <form>
         <input type="text" value="Project Name" name="projectName"></input>
-        <fieldset>
+        <fieldset id="milestones">
             <legend>Milestones</legend>
             <input type="text" value="Milestone" name="milestone">
-            <fieldset>
+            <fieldset id="tasks">
                 <legend>Tasks</legend>
                 <input type="text" value="Task" name="task"/>
                 <input type="text" value="Task" name="task"/>
                 <input type="text" value="Task" name="task"/>
             </fieldset>
             <input type="text" value="Milestone" name="milestone">
-             <fieldset>
+             <fieldset id="tasks">
                 <legend>Tasks</legend>
                 <input type="text" value="Task" name="task"/>
                 <input type="text" value="Task" name="task"/>
                 <input type="text" value="Task" name="task"/>
             </fieldset>
             <input type="text" value="Milestone" name="milestone">
-             <fieldset>
+             <fieldset id="tasks">
                 <legend>Tasks</legend>
                 <input type="text" value="Task" name="task"/>
                 <input type="text" value="Task" name="task"/>
                 <input type="text" value="Task" name="task"/>
             </fieldset>
         </fieldset>
-        <submit value="Add project"/>
+        <input type="submit" id="addProjectSubmit" value="Add project"/>
     </form>
     </div>
 </template>
