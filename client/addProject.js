@@ -1,17 +1,12 @@
-Template.addProjectLink.events = {
+Template.addProject.events = {
     'click #addProjectSubmit': function(e) {
         e.preventDefault();
-        
-        var name = $('[name="projectName"]').attr('value'),
-            formMilestones = $('[name="milestone"]').attr('value'),
-            formTasks = $('[name="task"]').attr('value');    
-        
-        $(formTasks).each(function() {
-            console.log(this);
-        });
+        var projName = document.getElementById('newProjectName').value;
+        Project.insert({ name: projName });
+    }
+};
 
-    },
-
+Template.addProjectLink.events = {
     'click .expand': function(e) {
         e.preventDefault();
         $('.expandable').toggle();

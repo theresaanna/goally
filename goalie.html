@@ -17,22 +17,26 @@
 <template name="project">
   <div class="project">
     <h1>{{name}}</h1>
-    <div class="milestones">
-        {{#each milestones}}
-            {{> milestones}}
-        {{/each}}
-    </div>
+    {{#if milestones}}
+        <div class="milestones">
+            {{#each milestones}}
+                {{> milestones}}
+            {{/each}}
+        </div>
+    {{/if}}
   </div>
 </template>
 
 <template name="milestones">
     <div class="milestone">
         <h2>{{name}}</h2>
-        <div class="tasks">
-            {{#each tasks}}
-                {{> tasks}}
-            {{/each}}
-        </div>
+        {{#if tasks}}
+            <div class="tasks">
+                {{#each tasks}}
+                    {{> tasks}}
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </template>
 
@@ -55,31 +59,7 @@
 <template name="addProject">
     <div id="addProject">
     <form>
-        <input type="text" value="Project Name" name="projectName"></input>
-        <fieldset id="milestones">
-            <legend>Milestones</legend>
-            <input type="text" value="Milestone" name="milestone">
-            <fieldset id="tasks">
-                <legend>Tasks</legend>
-                <input type="text" value="Task" name="task"/>
-                <input type="text" value="Task" name="task"/>
-                <input type="text" value="Task" name="task"/>
-            </fieldset>
-            <input type="text" value="Milestone" name="milestone">
-             <fieldset id="tasks">
-                <legend>Tasks</legend>
-                <input type="text" value="Task" name="task"/>
-                <input type="text" value="Task" name="task"/>
-                <input type="text" value="Task" name="task"/>
-            </fieldset>
-            <input type="text" value="Milestone" name="milestone">
-             <fieldset id="tasks">
-                <legend>Tasks</legend>
-                <input type="text" value="Task" name="task"/>
-                <input type="text" value="Task" name="task"/>
-                <input type="text" value="Task" name="task"/>
-            </fieldset>
-        </fieldset>
+        <input type="text" value="Project Name" name="projectName" id="newProjectName"></input>
         <input type="submit" id="addProjectSubmit" value="Add project"/>
     </form>
     </div>

@@ -9,8 +9,13 @@ if (Meteor.is_client) {
 
   Template.project.milestones = function() {
     var milestones = this.milestones;
-    return Milestone.find({_id: {$in: milestones}});
-  };
+    if (typeof milestones !== 'undefined') {
+        return Milestone.find({_id: {$in: milestones}}); 
+    }
+    else {
+        return null;
+    }
+ };
 
   Template.milestones.tasks = function() {
     // minimongo dot notation doesn't seem to be working on 0.3.5 either
