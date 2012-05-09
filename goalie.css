@@ -2,7 +2,8 @@
     float: right;
 }
 
-.expandable {
+.expandable,
+.addMilestoneForm {
     display: none;
     margin-bottom: 10px;
 }

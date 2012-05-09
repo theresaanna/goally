@@ -22,11 +22,20 @@ if (Meteor.is_client) {
     // I *should* be able to do this.tasks.t_id if I store ids in objects with t_id 
     // as a key. works in the mongo console but not here
     that = this.tasks;
-    return Task.find({_id: {$in: that}});
+    if (typeof that !== 'undefined') {
+        return Task.find({_id: {$in: that}});
+    }
+    else {
+        return null;
+    }
   };
 
   Template.tasks = function() {
     return Task.find();
+  }
+
+  Template.projects.addMilestoneForm = function() {
+    return Project.find();
   }
 
   // Template.projects.events = {
