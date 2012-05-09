@@ -3,7 +3,8 @@
 }
 
 .expandable,
-.addMilestoneForm {
+.addMilestoneForm,
+.addTaskForm {
     display: none;
     margin-bottom: 10px;
 }

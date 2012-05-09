@@ -34,6 +34,10 @@
 <template name="milestones">
     <div class="milestone">
         <h2>{{name}}</h2>
+        <a href="#" class="addTaskLink">+ Add task</a>
+        <div class="addTaskForm">
+            {{> addTaskForm}}
+        </div>
         {{#if tasks}}
             <div class="tasks">
                 {{#each tasks}}
@@ -74,5 +78,13 @@
         <label>Milestone</label>
         <input type="text" class="milestoneName" data-project-name="{{name}}"/>
         <input type="submit" id="addMilestoneSubmit" value="Add milestone"/>
+    </form>
+</template>
+
+<template name="addTaskForm">
+    <form>
+        <label>Task</label>
+        <input type="text" class="taskName" data-milestone-name="{{name}}"/>
+        <input type="submit" id="addTaskSubmit" value="Add task"/>
     </form>
 </template>

@@ -35,16 +35,14 @@ if (Meteor.is_client) {
   }
 
   Template.projects.addMilestoneForm = function() {
+    // adds related project for input element data attribute
     return Project.find();
   }
 
-  // Template.projects.events = {
-    //'click .edit' : function () {
-      // template data, if any, is available in 'this'
-     // if (typeof console !== 'undefined')
-       // console.log("You pressed the button");
-   // }
-  //};
+  Template.milestones.addTaskForm = function() {
+    // adds related milestone for input element data attribute
+    return Milestone.find();
+  }
 }
 
 if (Meteor.is_server) {
