@@ -4,7 +4,8 @@
 
 .expandable,
 .addMilestoneForm,
-.addTaskForm {
+.addTaskForm,
+.addTaskNotesForm {
     display: none;
     margin-bottom: 10px;
 }
@@ -13,4 +14,17 @@
     background-color: #eee;
     padding: 20px;
     clear: both;
+}
+
+.inprogress {
+    font-weight: bold;
+}
+
+.done {
+    color: #ccc;
+}
+
+.todo {
+    color: #666;
+    font-weight: bold;
 }

@@ -4,87 +4,9 @@
 </head>
 
 <body>
-   {{> addProjectLink}}
-   {{> projects}}
+    <header>
+        hi!
+    </header>
 </body>
 
-<template name="projects">
-    {{#each project}}
-        {{> project}}
-    {{/each}}
-</template>
 
-<template name="project">
-  <div class="project">
-    <h1>{{name}}</h1>
-    <a href="#" class="addMilestoneLink" data-project-name="{{name}}">+ Add milestone</a>
-    <div class="addMilestoneForm">
-        {{> addMilestoneForm}}
-    </div>
-    {{#if milestones}}
-        <div class="milestones">
-            {{#each milestones}}
-                {{> milestones}}
-            {{/each}}
-        </div>
-    {{/if}}
-  </div>
-</template>
-
-<template name="milestones">
-    <div class="milestone">
-        <h2>{{name}}</h2>
-        <a href="#" class="addTaskLink">+ Add task</a>
-        <div class="addTaskForm">
-            {{> addTaskForm}}
-        </div>
-        {{#if tasks}}
-            <div class="tasks">
-                {{#each tasks}}
-                    {{> tasks}}
-                {{/each}}
-            </div>
-        {{/if}}
-    </div>
-</template>
-
-<template name="tasks">
-    <div class="task">
-       <h3>{{name}}</h3>
-    </div>
-</template>
-
-<template name="addProjectLink">
-    <div class="right">
-        <a href="#" class="expand">Add project</a>
-    </div>
-    
-    <div class="expandable">
-      {{> addProject}}
-    </div>
-</template>
-
-<template name="addProject">
-    <div id="addProject">
-    <form>
-        <input type="text" value="Project Name" name="projectName" id="newProjectName"></input>
-        <input type="submit" id="addProjectSubmit" value="Add project"/>
-    </form>
-    </div>
-</template>
-
-<template name="addMilestoneForm">
-    <form>
-        <label>Milestone</label>
-        <input type="text" class="milestoneName" data-project-name="{{name}}"/>
-        <input type="submit" id="addMilestoneSubmit" value="Add milestone"/>
-    </form>
-</template>
-
-<template name="addTaskForm">
-    <form>
-        <label>Task</label>
-        <input type="text" class="taskName" data-milestone-name="{{name}}"/>
-        <input type="submit" id="addTaskSubmit" value="Add task"/>
-    </form>
-</template>
