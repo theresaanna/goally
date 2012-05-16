@@ -4,14 +4,13 @@
 </head>
 
 <body>
-    <header>
-        {{> addProjectLink}}
-        <a href="archived.html">Archived Projects</a>
-    </header>
-   {{> projects}}
 </body>
 
 <template name="projects">
+    <header>
+        <a href="archived.html">Archived Projects</a>
+    </header>
+
     {{#each project}}
         {{> project}}
     {{/each}}

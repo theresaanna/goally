@@ -4,11 +4,11 @@
 </head>
 
 <body>
-    <a href="dashboard">Back to active projects</a>
-    {{> archivedProjects}}
 </body>
 
 <template name="archivedProjects">
+    <a href="dashboard">Back to active projects</a>
+
     {{#each archivedProject}}
         {{> archivedProject}}
     {{/each}}

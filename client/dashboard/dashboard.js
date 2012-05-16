@@ -105,3 +105,4 @@ Template.addTaskNotesForm.events = {
         Task.update({name: taskName}, {notes: fieldVal});
     }
 };
+
