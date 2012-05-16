@@ -1,3 +1,19 @@
 A Meteor.js project tracking app.
 
-Built from devel branch of Meteor.js Git repo.
+Todo:
+<strike>Project feature</strike>
+<strike>Task feature</strike>
+<strike>Milestone feature</strike>
+<strike>Add notes to tasks</strike>
+<strike>Project archive</strike>
+<strike>Visual cue for item status</strike>
+Edit status of items
+Rearrange the order of items
+Delete a task
+Add a WYSIWYG for task notes
+Show dates on project
+Add a project wishlist
+Implement a user system
+Sanitize inputs
+Error handling
+Make it pretty
