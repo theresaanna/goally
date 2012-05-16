@@ -90,7 +90,6 @@ Template.addTaskForm.events = {
 
 Template.tasks.events = {
     'click .addTaskNotesLink': function(event) {
-        console.log('hi');
         event.preventDefault();
         $(event.target).next('.addTaskNotesForm').toggle();
     }
@@ -102,7 +101,6 @@ Template.addTaskNotesForm.events = {
         var field = $(event.target).prev('.addTaskNotes'),
             fieldVal = $(field).val(),
             taskName = $(field).attr('data-task-name');
-        Task.update({name: taskName}, {notes: fieldVal});
+        Task.update({name: taskName}, {$addToSet: {notes: fieldVal}});
     }
 };
-
