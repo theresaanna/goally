@@ -15,6 +15,17 @@
     </header>
 </template>
 
+<template name="itemStatus">
+    Status: {{status}} <a href="#" class="changeStatus">Change status</a>
+</template>
+
+<template name="itemStatusForm">
+  <form>
+        <label>Status</label>
+        this is where there'll be a select for the status of an item
+    </form>
+</template>
+
 <template name="projects">
     {{#each project}}
         {{> project}}

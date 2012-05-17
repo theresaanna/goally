@@ -5,7 +5,7 @@
   Template.project.milestones = function() {
     var milestones = this.milestones;
     if (typeof milestones !== 'undefined') {
-        return Milestone.find({_id: {$in: milestones}}); 
+        return Milestone.find({_id: {$in: milestones}}, {sort: {created: 1}}); 
     }
     else {
         return null;
@@ -102,5 +102,12 @@ Template.addTaskNotesForm.events = {
             fieldVal = $(field).val(),
             taskName = $(field).attr('data-task-name');
         Task.update({name: taskName}, {$addToSet: {notes: fieldVal}});
+    }
+};
+
+Template.itemStatus.events = {
+    'click #changeStatus': function(event) {
+        event.preventDefault();
+        $(event.target).next('.editStatusForm').toggle();
     }
 };
