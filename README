@@ -1,12 +1,13 @@
 A Meteor.js project tracking app.
 
 Todo:
-<strike>Project feature</strike>
-<strike>Task feature</strike>
-<strike>Milestone feature</strike>
-<strike>Add notes to tasks</strike>
-<strike>Project archive</strike>
-<strike>Visual cue for item status</strike>
+DONE    Project feature 
+DONE    Task feature 
+DONE    Milestone feature 
+DONE    Add notes to tasks 
+DONE    Project archive 
+DONE    Visual cue for item status
+DONE    Display dashboard in descending order
 Edit status of items
 Rearrange the order of items
 Delete a task
@@ -17,3 +18,4 @@ Implement a user system
 Sanitize inputs
 Error handling
 Make it pretty
+Restructure code
