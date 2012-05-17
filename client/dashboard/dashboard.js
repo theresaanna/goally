@@ -65,7 +65,7 @@ Template.addMilestoneForm.events = {
         var field = $(event.target).prev('.milestoneName'),
             fieldValue = $(field).val(),
             projectName = $(field).attr('data-project-name');
-        var milestoneId = Milestone.insert({name: fieldValue});
+        var milestoneId = Milestone.insert({name: fieldValue, 'status': "pending", created: Date.now()});
         Project.update({name: projectName}, {$addToSet: {milestones: milestoneId}});
     }
 };
@@ -83,7 +83,7 @@ Template.addTaskForm.events = {
         var field = $(event.target).prev('.taskName'),
             fieldVal = $(field).val(),
             milestoneName = $(field).attr('data-milestone-name');
-        var taskId = Task.insert({name: fieldVal});
+        var taskId = Task.insert({name: fieldVal, 'status': "pending", created: Date.now()});
         Milestone.update({name: milestoneName}, {$addToSet: {tasks: taskId}});
     }
 };

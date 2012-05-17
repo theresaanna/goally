@@ -18,13 +18,13 @@
 <template name="projects">
     {{#each project}}
         {{> project}}
-        {{> itemStatus}}
     {{/each}}
 </template>
 
 <template name="project">
   <div class="project">
     <h1>{{name}}</h1>
+    {{> itemStatus}}
     <a href="#" class="addMilestoneLink" data-project-name="{{name}}">+ Add milestone</a>
     <div class="addMilestoneForm">
         {{> addMilestoneForm}}
@@ -34,9 +34,9 @@
             {{#each milestones}}
                 {{> milestones}}
             {{/each}}
+            <a href="#" class="addToArchiveLink" data-project-name="{{name}}">Archive this project -></a>
         </div>
     {{/if}}
-      <a href="#" class="addToArchiveLink" data-project-name="{{name}}">Archive this project -></a>
   </div>
 </template>
 
@@ -44,10 +44,11 @@
     <div class="milestone {{itemStatus}}">
         <h2>{{name}}</h2>
         <a href="#" class="addTaskLink">+ Add task</a>
-        {{> itemStatus}}
         <div class="addTaskForm">
             {{> addTaskForm}}
         </div>
+        {{> itemStatus}}
+
         {{#if tasks}}
             <div class="tasks">
                 {{#each tasks}}
@@ -67,12 +68,12 @@
             </div>
         {{else}} 
             <a href="#" class="addTaskNotesLink">+ Add notes to this task</a>
+            <div class="addTaskNotesForm">
+                {{> addTaskNotesForm}}
+            </div>
         {{/if}}
         {{> itemStatus}}
-        <div class="addTaskNotesForm">
-            {{> addTaskNotesForm}}
-        </div>
-    </div>
+   </div>
 </template>
 
 <template name="addProjectLink">
