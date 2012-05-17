@@ -26,6 +26,10 @@ body {
     clear: both;
 }
 
+.addProjectLink {
+    margin-right: 10px;
+}
+
 .inprogress {
     font-weight: bold;
 }

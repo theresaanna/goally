@@ -4,16 +4,21 @@
 </head>
 
 <body>
+    {{> header}}
 </body>
 
-<template name="projects">
-    <header clas="main">
+<template name="header">
+    <header class="main">
         <h1>Goalie</h1>
-        <a href="archived right">Archived Projects</a>
+        <a href="archived" class="right">Archived projects</a> 
+        {{> addProjectLink}} 
     </header>
+</template>
 
+<template name="projects">
     {{#each project}}
         {{> project}}
+        {{> itemStatus}}
     {{/each}}
 </template>
 
@@ -31,14 +36,15 @@
             {{/each}}
         </div>
     {{/if}}
-    <a href="#" class="addToArchiveLink" data-project-name="{{name}}">Archive this project -></a>
+      <a href="#" class="addToArchiveLink" data-project-name="{{name}}">Archive this project -></a>
   </div>
 </template>
 
 <template name="milestones">
-    <div class="milestone {{status}}">
+    <div class="milestone {{itemStatus}}">
         <h2>{{name}}</h2>
         <a href="#" class="addTaskLink">+ Add task</a>
+        {{> itemStatus}}
         <div class="addTaskForm">
             {{> addTaskForm}}
         </div>
@@ -53,16 +59,16 @@
 </template>
 
 <template name="tasks">
-    <div class="task {{status}}">
+    <div class="task {{itemStatus}}">
         <h3>{{name}}</h3>
         {{#if notes}}
             <div class="taskNotes">
-                <strong>Notes:</strong>
-                {{notes}}
+                Notes: {{notes}}
             </div>
         {{else}} 
             <a href="#" class="addTaskNotesLink">+ Add notes to this task</a>
         {{/if}}
+        {{> itemStatus}}
         <div class="addTaskNotesForm">
             {{> addTaskNotesForm}}
         </div>
@@ -70,7 +76,7 @@
 </template>
 
 <template name="addProjectLink">
-    <div class="right">
+    <div class="right addProjectLink">
         <a href="#" class="expand">Add project</a>
     </div>
     

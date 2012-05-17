@@ -1,5 +1,5 @@
   Template.projects.project = function () {
-    return Project.find();
+    return Project.find({}, {sort: {created: -1}});
   };
 
   Template.project.milestones = function() {
