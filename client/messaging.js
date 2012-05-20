@@ -12,7 +12,7 @@ Meteor.userAlert = function(alert) {
             var tmpl = Meteor.ui.render(function() {
                 return Template.messages();
             });
-            $('body').prepend(tmpl);
+            $('#messages').fadeIn().html(tmpl);
         })
     }
     updateMessages();
