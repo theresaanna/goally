@@ -4,13 +4,15 @@
 </head>
 
 <body>
+    <div id="messages"></div>
 </body>
 
 <template name="loginForm">
     <form>
-        <label>Please enter your email to login. Its ok if you haven't been here before.</label>
-        <input type="text" name="email" id="emailaddr"/>
-        <input type="text" name="username" id="username"/>
+        <label>Please enter your email to login.</label>
+        <p><a href="#" class="register">I'm new!</a></p>
+        <input type="text" name="email" id="emailaddr" value="Email" />
+        <input type="text" name="username" id="username" value="Name" />
         <input type="submit" value="Let's go!" class="submit"/>
     </form>
 </template>
