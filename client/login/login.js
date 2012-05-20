@@ -6,54 +6,70 @@ Template.loginForm.events = {
         Session.set('registration', '1');
     },
 
+    // submit login or register form
     'click .submit': function(event) {
         event.preventDefault();
-        var address = document.getElementById('emailaddr').value,
-            username = document.getElementById('username').value,
-            emailTest = validEmail(address),
-            newUser;
-        
-        // test email format validity
-        // TODO: server side validation
-        if (!emailTest) {
-            var errStr = 'Whoops! Invalid email address. Try again, will you?';
-            userAlert(errStr);
-            throw errStr;
-        }
+        var user = validateEmail(document.getElementById('emailaddr').value);
 
-        if (typeof address === 'undefined') {
-            if (username === 'Name') {
-                username = address;
-            }
-
-            newUser = User.insert({email: address, name: username});
-        }
-        else {
-            newUser = User.findOne({email: address});
-        }
-        
         // TODO: set cookie
         try {
-            Session.set('user', newUser._id);
+            Session.set('user', user._id);
             router.navigate('/dashboard', {trigger: true});
         }
         catch (err) {
-            userAlert(err.message);
+            Meteor.userAlert(err.message);
             throw new Error(err);
         }
-
     }
-
 }; 
 
-function validEmail(email) {
-    // matches string@string.string
-    // intentionally simplistic 
-    var criteria = /\S+@\S+\.\S+/;
-    return criteria.test(email);
+Template.messages = function() {
+    return Session.get('message');
+};
+
+// FOR CONSIDERATION: currently messaging system
+// only supports one message at a time
+Meteor.userAlert = function(alert) {
+    var updateMessages = function() {
+        var context = new Meteor.deps.Context();
+        context.on_invalidate(updateMessages);
+        context.run(function() {
+            var tmpl = Meteor.ui.render(function() {
+                return Template.messages();
+            });
+            $('body').prepend(tmpl);
+        })
+    }
+    updateMessages();
 }
 
-function userAlert(alert) {
-    $('#messages').append(alert);
-    return alert;
+// takes: email field input
+// returns: user object
+function validateEmail(email) {
+    // matches string@string.string
+    // intentionally simplistic 
+    var criteria = /\S+@\S+\.\S+/,
+        results = criteria.test(email);
+console.log(results);
+    // test email format validity
+    // TODO: server side validation
+    if (!results) {
+        var errStr = 'Whoops! Invalid email address. Try again, will you?';
+        Session.set('message', errStr);
+        Meteor.userAlert();
+        throw errStr;
+    }
+    return userLogin(email);
+}
+
+// takes: validated email address
+// returns: existing or new user object
+function userLogin(email) {
+    var userObj = User.findOne({email: email});
+
+    if (typeof userObj === 'undefined') {
+        userObj = User.insert({email: email});
+    } 
+
+    return userObj;
 }

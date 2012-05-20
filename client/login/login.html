@@ -4,8 +4,15 @@
 </head>
 
 <body>
-    <div id="messages"></div>
 </body>
+
+<template name="messages">
+    <div id="messages">
+        {{#if messages}}
+            {{messages}}
+        {{/if}}
+    </div>
+</template>
 
 <template name="loginForm">
     <form>
