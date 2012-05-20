@@ -2,13 +2,23 @@ Project = new Meteor.Collection('projects');
 Milestone = new Meteor.Collection('milestones');
 Task = new Meteor.Collection('tasks');
 ProjectArchive = new Meteor.Collection('projectArchive');
+User = new Meteor.Collection('users');
 
 if (Meteor.is_client) {
 
     var Routes = Backbone.Router.extend({
         routes: {
             "dashboard":    "dashboard",
-            "archived":     "archived"
+            "archived":     "archived",
+            "login":        "login"
+        },
+
+        // TODO: abstract this 'startup' functionality
+        login: function() {
+            var loginView = Meteor.ui.render(function() {
+                return Template.loginForm();
+            });
+            $('body').append(loginView);
         },
 
         dashboard: function() {
