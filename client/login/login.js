@@ -2,6 +2,7 @@ Template.loginForm.events = {
     'click .register': function(event) {
         event.preventDefault();
         $('#username').toggle();
+        // not doing anything with this yet
         Session.set('registration', '1');
     },
 
@@ -12,6 +13,8 @@ Template.loginForm.events = {
             emailTest = validEmail(address),
             newUser;
         
+        // test email format validity
+        // TODO: server side validation
         if (!emailTest) {
             var errStr = 'Whoops! Invalid email address. Try again, will you?';
             userAlert(errStr);
@@ -29,8 +32,10 @@ Template.loginForm.events = {
             newUser = User.findOne({email: address});
         }
         
+        // TODO: set cookie
         try {
             Session.set('user', newUser._id);
+            router.navigate('/dashboard', {trigger: true});
         }
         catch (err) {
             userAlert(err.message);
