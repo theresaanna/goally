@@ -15,7 +15,8 @@ body {
 .expandable,
 .addMilestoneForm,
 .addTaskForm,
-.addTaskNotesForm {
+.addTaskNotesForm,
+.editStatusForm {
     display: none;
     margin-bottom: 10px;
 }

@@ -43,6 +43,12 @@
     return Milestone.find();
   }
 
+  Template.editStatusForm = function() {
+    return Milestone.find();
+  }
+
+  Template.editStatusForm.statuses = ['In Progress', 'Todo', 'Done'];
+
 // event handlers
 Template.project.events = {
     'click .addMilestoneLink': function(event) {
@@ -106,8 +112,18 @@ Template.addTaskNotesForm.events = {
 };
 
 Template.itemStatus.events = {
-    'click #changeStatus': function(event) {
+    'click .changeStatus': function(event) {
         event.preventDefault();
-        $(event.target).next('.editStatusForm').toggle();
+        var statusForm = Meteor.ui.chunk(function() {
+            return  Template.editStatusForm();
+        });
+        $(event.target).parent().append(statusForm);
+}
+};
+
+Template.editStatusForm.events = {
+    'select .status': function(event) {
+        event.preventDefault();
+        return 'hi';
     }
 };

@@ -17,13 +17,13 @@
 
 <template name="itemStatus">
     Status: {{status}} <a href="#" class="changeStatus">Change status</a>
+    {{> editStatusForm}}
 </template>
 
-<template name="itemStatusForm">
-  <form>
+<template name="editStatusForm">
+  <form class="editStatusForm">
         <label>Status</label>
-        this is where there'll be a select for the status of an item
-    </form>
+           </form>
 </template>
 
 <template name="projects">
