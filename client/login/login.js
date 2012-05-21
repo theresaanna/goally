@@ -36,6 +36,7 @@ function validateEmail(email) {
         var errStr = 'Whoops! Invalid email address. Try again, will you?';
         Session.set('message', errStr);
         Meteor.userAlert();
+        // throw error in console, stop executing. better way?
         throw errStr;
     }
     return userLogin(email);

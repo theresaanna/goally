@@ -27,6 +27,7 @@ if (Meteor.is_client) {
             // remove the login form once
             // user logs in and dashboard loads
             $('#login').remove();
+            Session.set('message', ' ');
 
             var projectsView = Meteor.ui.render(function() {
                 return Template.projects();

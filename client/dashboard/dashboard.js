@@ -1,5 +1,5 @@
   Template.projects.project = function () {
-    return Project.find({}, {sort: {created: -1}});
+    return Project.find({uid: Session.get('user')}, {sort: {created: -1}});
   };
 
   Template.project.milestones = function() {
