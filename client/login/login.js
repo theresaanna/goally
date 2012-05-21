@@ -22,27 +22,6 @@ Template.loginForm.events = {
         }
     }
 }; 
-
-Template.messages = function() {
-    return Session.get('message');
-};
-
-// FOR CONSIDERATION: currently messaging system
-// only supports one message at a time
-Meteor.userAlert = function(alert) {
-    var updateMessages = function() {
-        var context = new Meteor.deps.Context();
-        context.on_invalidate(updateMessages);
-        context.run(function() {
-            var tmpl = Meteor.ui.render(function() {
-                return Template.messages();
-            });
-            $('body').prepend(tmpl);
-        })
-    }
-    updateMessages();
-}
-
 // takes: email field input
 // returns: user object
 function validateEmail(email) {
@@ -50,7 +29,7 @@ function validateEmail(email) {
     // intentionally simplistic 
     var criteria = /\S+@\S+\.\S+/,
         results = criteria.test(email);
-console.log(results);
+
     // test email format validity
     // TODO: server side validation
     if (!results) {

@@ -22,6 +22,12 @@ if (Meteor.is_client) {
         },
 
         dashboard: function() {
+            // complete and utter hack.
+            // there has to be a better way
+            // remove the login form once
+            // user logs in and dashboard loads
+            $('#login').remove();
+
             var projectsView = Meteor.ui.render(function() {
                 return Template.projects();
             });
@@ -45,7 +51,6 @@ if (Meteor.is_client) {
         Backbone.history.start({pushState: true});
     });
 }
-
 
     if (Meteor.is_server) {
       Meteor.startup(function () {
