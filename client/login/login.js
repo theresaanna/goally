@@ -21,7 +21,8 @@ Template.loginForm.events = {
             throw new Error(err);
         }
     }
-}; 
+};
+
 // takes: email field input
 // returns: user object
 function validateEmail(email) {

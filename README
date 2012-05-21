@@ -8,14 +8,18 @@ DONE    Add notes to tasks
 DONE    Project archive 
 DONE    Visual cue for item status
 DONE    Display dashboard in descending order
-Edit status of items
+PARTIALLY DONE  Edit status of items
 Rearrange the order of items
 Delete a task
 Add a WYSIWYG for task notes
 Show dates on project
 Add a project wishlist
-Implement a user system
+PARTIALLY DONE    Implement a user system
+    - passwords
+    - set cookie
+    - logout
+DONE    Implement a system->user messaging system
 Sanitize inputs
 Error handling
 Make it pretty
-Restructure code
+DONE... FOR NOW Restructure code

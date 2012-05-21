@@ -1,0 +1,20 @@
+<template name="addProjectLink">
+    <div class="right addProjectLink">
+        <a href="#" class="expand">Add project</a>
+    </div>
+    
+    <div class="expandable">
+      {{> addProject}}
+    </div>
+</template>
+
+<template name="addProject">
+    <div id="addProject">
+    <form>
+        <input type="text" value="Project Name" name="projectName" id="newProjectName"></input>
+        <input type="submit" id="addProjectSubmit" value="Add project"/>
+    </form>
+    </div>
+</template>
+
+

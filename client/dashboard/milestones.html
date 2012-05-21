@@ -1,0 +1,27 @@
+<template name="milestones">
+    <div class="milestone {{itemStatus}}">
+        <h2>{{name}}</h2>
+        <a href="#" class="addTaskLink">+ Add task</a>
+        <div class="addTaskForm">
+            {{> addTaskForm}}
+        </div>
+        {{> itemStatus}}
+
+        {{#if tasks}}
+            <div class="tasks">
+                {{#each tasks}}
+                    {{> tasks}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+</template>
+
+<template name="addMilestoneForm">
+    <form>
+        <label>Milestone</label>
+        <input type="text" class="milestoneName" data-project-name="{{name}}"/>
+        <input type="submit" id="addMilestoneSubmit" value="Add milestone"/>
+    </form>
+</template>
+
