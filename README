@@ -12,7 +12,7 @@ PARTIALLY DONE  Edit status of items
 Rearrange the order of items
 DONE    Delete a task
 Add a WYSIWYG for task notes
-Show dates on project
+DONE    Show dates on project
 Add a project wishlist
 PARTIALLY DONE    Implement a user system
     - passwords

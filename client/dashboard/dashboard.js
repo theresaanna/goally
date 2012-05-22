@@ -1,18 +1,22 @@
-  Template.projects.project = function () {
+Template.projects.project = function () {
     return Project.find({uid: Session.get('user')}, {sort: {created: -1}});
-  };
+};
 
-  Template.project.milestones = function() {
+Template.project.date = function() {
+    return dateFormat(this.created, "mmmm dd 'yy");
+};
+
+Template.project.milestones = function() {
     var milestones = this.milestones;
     if (typeof milestones !== 'undefined') {
-        return Milestone.find({_id: {$in: milestones}}, {sort: {created: 1}}); 
-    }
+            return Milestone.find({_id: {$in: milestones}}, {sort: {created: 1}}); 
+        }
     else {
         return null;
     }
- };
+};
 
-  Template.milestones.tasks = function() {
+Template.milestones.tasks = function() {
     // minimongo dot notation doesn't seem to be working on 0.3.5 either
     // I *should* be able to do this.tasks.t_id if I store ids in objects with t_id 
     // as a key. works in the mongo console but not here
@@ -23,31 +27,31 @@
     else {
         return null;
     }
-  };
+};
 
-  Template.tasks = function() {
+Template.tasks = function() {
     return Task.find();
-  }
+}
 
-  Template.addTaskNotesForm = function() {
+Template.addTaskNotesForm = function() {
     return Task.find();
-  }
+}
 
-  Template.projects.addMilestoneForm = function() {
+Template.projects.addMilestoneForm = function() {
     // adds related project for input element data attribute
     return Project.find();
-  }
+}
 
-  Template.milestones.addTaskForm = function() {
+Template.milestones.addTaskForm = function() {
     // adds related milestone for input element data attribute
     return Milestone.find();
-  }
+}
 
-  Template.editStatusForm = function() {
+Template.editStatusForm = function() {
     return Milestone.find();
-  }
+}
 
-  Template.editStatusForm.statuses = ['In Progress', 'Todo', 'Done'];
+Template.editStatusForm.statuses = ['In Progress', 'Todo', 'Done'];
 
 // event handlers
 Template.project.events = {
