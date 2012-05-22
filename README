@@ -10,7 +10,7 @@ DONE    Visual cue for item status
 DONE    Display dashboard in descending order
 PARTIALLY DONE  Edit status of items
 Rearrange the order of items
-Delete a task
+DONE    Delete a task
 Add a WYSIWYG for task notes
 Show dates on project
 Add a project wishlist

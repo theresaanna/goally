@@ -98,7 +98,13 @@ Template.tasks.events = {
     'click .addTaskNotesLink': function(event) {
         event.preventDefault();
         $(event.target).next('.addTaskNotesForm').toggle();
-    }
+    },
+
+    'click .removeTask': function(event) {
+        event.preventDefault();
+        var taskName = $(event.target).prev().html();   
+        Task.remove({name: taskName});
+   }
 };
 
 Template.addTaskNotesForm.events = {

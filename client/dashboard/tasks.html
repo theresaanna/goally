@@ -1,6 +1,7 @@
 <template name="tasks">
     <div class="task {{itemStatus}}">
         <h3>{{name}}</h3>
+        <a href="#" class="removeTask">Delete</a>
         {{#if notes}}
             <div class="taskNotes">
                 Notes: {{notes}}
