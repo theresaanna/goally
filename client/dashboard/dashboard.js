@@ -72,10 +72,6 @@ Template.project.events = {
             project = Project.findOne({name: projectName});
         ProjectArchive.insert({name: project.name, milestones: project.milestones, status: project.status});
         Project.remove({name: projectName});
-    },
-
-    'mouseover .draggable-unbound': function(event) {
-        makeDraggable(event.target, 'project');
     }
 };
 
@@ -94,10 +90,6 @@ Template.milestones.events = {
     'click .addTaskLink': function(event) {
         event.preventDefault();
         $(event.target).next('.addTaskForm').toggle();
-    },
-
-    'mouseover .draggable-unbound': function(event) {
-        makeDraggable(event.target, 'milestone');
     }
 };
 
@@ -122,11 +114,7 @@ Template.tasks.events = {
         event.preventDefault();
         var taskName = $(event.target).prev().html();   
         Task.remove({name: taskName});
-   },
-
-    'mouseover .draggable-unbound': function(event) {
-        makeDraggable(event.target, 'task');
-    }
+   }
 };
 
 Template.addTaskNotesForm.events = {
@@ -157,19 +145,3 @@ Template.editStatusForm.events = {
         // run update
     }
 };
-
-// event helpers
-
-// takes a DOM element and item type, calls jQuery UI's .draggable on it
-function makeDraggable(el, scope) {
-    var handles = {'milestone': '<h2>', 'project': '<h1>', 'task': '<h3>'};
-
-    $(el).draggable({snapMode: 'outer', 
-                    containment: 'parent', 
-                    cursor: 'crosshair', 
-                    grid: [100,50], 
-                    revert: true,
-                    handle: handles.scope
-            })
-           .removeClass('draggable-unbound');
-}
