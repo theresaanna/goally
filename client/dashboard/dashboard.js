@@ -136,10 +136,7 @@ Template.addTaskNotesForm.events = {
 Template.itemStatus.events = {
     'click .changeStatus': function(event) {
         event.preventDefault();
-        var statusForm = Meteor.ui.chunk(function() {
-            return  Template.editStatusForm();
-        });
-        $(event.target).parent().append(statusForm);
+        $(event.target).next('.editStatusForm').toggle();
     }
 };
 
