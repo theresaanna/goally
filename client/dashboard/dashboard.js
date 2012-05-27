@@ -16,6 +16,12 @@ Template.project.milestones = function() {
     }
 };
 
+// when implementing sort 
+// insert an 'order' index in db if a project's milestones or a milestone's tasks have ever been sorted
+// sort by 'order' if exists
+// activate sort -> fill in 'order' according to natural sort
+// 
+
 Template.milestones.tasks = function() {
     // minimongo dot notation doesn't seem to be working on 0.3.5 either
     // I *should* be able to do this.tasks.t_id if I store ids in objects with t_id 
