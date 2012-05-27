@@ -144,6 +144,11 @@ Template.editStatusForm.events = {
     'select .status': function(event) {
         event.preventDefault();
         return 'hi';
+        // figure out diff statuses for item scope
+        // find way to grab item scope - probably off data attr
+        // populate radio buttons with statuses
+            // current status selected
+        // run update
     }
 };
 
