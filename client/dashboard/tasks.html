@@ -1,5 +1,5 @@
 <template name="tasks">
-    <div class="task {{itemStatus}}">
+    <div class="task {{itemStatus}} draggable-unbound">
         <h3>{{name}}</h3>
         <a href="#" class="removeTask">Delete</a>
         {{#if notes}}

@@ -66,6 +66,10 @@ Template.project.events = {
             project = Project.findOne({name: projectName});
         ProjectArchive.insert({name: project.name, milestones: project.milestones, status: project.status});
         Project.remove({name: projectName});
+    },
+
+    'mouseover .draggable-unbound': function(event) {
+        makeDraggable(event.target);
     }
 };
 
@@ -84,6 +88,10 @@ Template.milestones.events = {
     'click .addTaskLink': function(event) {
         event.preventDefault();
         $(event.target).next('.addTaskForm').toggle();
+    },
+
+    'mouseover .draggable-unbound': function(event) {
+        makeDraggable(event.target);
     }
 };
 
@@ -108,7 +116,11 @@ Template.tasks.events = {
         event.preventDefault();
         var taskName = $(event.target).prev().html();   
         Task.remove({name: taskName});
-   }
+   },
+
+    'mouseover .draggable-unbound': function(event) {
+        makeDraggable(event.target);
+    }
 };
 
 Template.addTaskNotesForm.events = {
@@ -128,7 +140,7 @@ Template.itemStatus.events = {
             return  Template.editStatusForm();
         });
         $(event.target).parent().append(statusForm);
-}
+    }
 };
 
 Template.editStatusForm.events = {
@@ -137,3 +149,14 @@ Template.editStatusForm.events = {
         return 'hi';
     }
 };
+
+// event helpers
+
+// takes a DOM element, calls jQuery UI's .draggable on it
+function makeDraggable(el) {
+console.log(el);
+    $(el).draggable()
+           .removeClass('draggable-unbound')
+           .addClass('draggable-bound');
+}
+
