@@ -69,7 +69,7 @@ Template.project.events = {
     },
 
     'mouseover .draggable-unbound': function(event) {
-        makeDraggable(event.target);
+        makeDraggable(event.target, 'project');
     }
 };
 
@@ -91,7 +91,7 @@ Template.milestones.events = {
     },
 
     'mouseover .draggable-unbound': function(event) {
-        makeDraggable(event.target);
+        makeDraggable(event.target, 'milestone');
     }
 };
 
@@ -119,7 +119,7 @@ Template.tasks.events = {
    },
 
     'mouseover .draggable-unbound': function(event) {
-        makeDraggable(event.target);
+        makeDraggable(event.target, 'task');
     }
 };
 
@@ -152,11 +152,16 @@ Template.editStatusForm.events = {
 
 // event helpers
 
-// takes a DOM element, calls jQuery UI's .draggable on it
-function makeDraggable(el) {
-console.log(el);
-    $(el).draggable()
-           .removeClass('draggable-unbound')
-           .addClass('draggable-bound');
-}
+// takes a DOM element and item type, calls jQuery UI's .draggable on it
+function makeDraggable(el, scope) {
+    var handles = {'milestone': '<h2>', 'project': '<h1>', 'task': '<h3>'};
 
+    $(el).draggable({snapMode: 'outer', 
+                    containment: 'parent', 
+                    cursor: 'crosshair', 
+                    grid: [100,50], 
+                    revert: true,
+                    handle: handles.scope
+            })
+           .removeClass('draggable-unbound');
+}
