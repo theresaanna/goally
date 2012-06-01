@@ -6,11 +6,12 @@ Template.itemStatus.events = {
     'click .changeStatus': function(event) {
         event.preventDefault();
         $(event.target).next('.statusList').toggle();
-    },
-
-    'click .statusListItem': function(event) {
-        var newStatus = $(event.target).html();
     }
+
+    // we don't handle the change status form events here
+    // in this context, we cannot tell what collection the parent object is from
+    // each collection template has an event handler that will update its document accordingly
+
 };
 
 // compare the Status obj and the Project.status

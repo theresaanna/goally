@@ -26,6 +26,13 @@ Template.milestones.events = {
     'click .addTaskLink': function(event) {
         event.preventDefault();
         $(event.target).next('.addTaskForm').toggle();
+    },
+    
+    'click .statusListItem': function(event) {
+        var newStatus = this.name;
+            milestoneName = $(event.target).attr('data-parent-name');
+        Milestone.update({name: milestoneName}, {$set: {status: newStatus}});
+        $(event.target).parent('expandable').toggle(); 
     }
 };
 

@@ -15,7 +15,7 @@
     Status: {{status}} <a href="#" class="changeStatus">Change status</a>
     <div class="expandable statusList">
         {{#each list}}
-            <input type="radio" class="statusListItem" group="status" data-parent-name="{{../name}}" {{#ifCurrentStatus ../status name}}{{/ifCurrentStatus}} value="{{name}}">{{name}}</input>  
+            <input type="radio" class="statusListItem" group="status" data-parent-name="{{../name}}" {{#ifCurrentStatus ../status name}}{{/ifCurrentStatus}}>{{name}}</input>
        {{/each}}
     </div>
 </template>
