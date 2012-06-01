@@ -9,7 +9,11 @@ Template.addTaskNotesForm = function() {
 Template.tasks.events = {
     'click .addTaskNotesLink': function(event) {
         event.preventDefault();
-        $(event.target).next('.addTaskNotesForm').toggle();
+        var context = $(event.target).next('.addTaskNotesForm');
+        context.toggle();
+        // initialize wysihtml5
+        console.log(context.children().length);
+        context.find('#addTaskNotes').wysihtml5();
     },
 
     'click .removeTask': function(event) {

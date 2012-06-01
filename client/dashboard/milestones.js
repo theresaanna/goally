@@ -26,8 +26,12 @@ Template.milestones.events = {
     'click .addTaskLink': function(event) {
         event.preventDefault();
         $(event.target).next('.addTaskForm').toggle();
+        //initialize ckeditor
+        $(event.target).next('textarea').ckeditor();
     },
     
+    // replicated in each of the main three data types
+    // so not DRY, but I can't find a better way where the collection type is still in context
     'click .statusListItem': function(event) {
         var newStatus = this.name;
             milestoneName = $(event.target).attr('data-parent-name');
