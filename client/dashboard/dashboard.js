@@ -14,6 +14,12 @@ Template.itemStatus.events = {
 
 };
 
+Template.orderControls.events = {
+    'click .moveUpButton': function(event) {
+        event.preventDefault();
+    }
+}
+
 // compare the Status obj and the Project.status
 // if true, the template will have the radio button
 // selected by default
