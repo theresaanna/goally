@@ -11,7 +11,9 @@ if (Meteor.is_client) {
         routes: {
             "dashboard":    "dashboard",
             "archived":     "archived",
-            "login":        "login"
+            "login":        "login",
+            "auth": "auth",
+            "authCallback?oauth_token=:oauth_token&oauth_verifier=:oauth_verifier": "authCallback"
         },
 
         // TODO: abstract this 'startup' functionality
@@ -43,7 +45,45 @@ if (Meteor.is_client) {
             });
             $('body').append(archivedView);
             Session.set("state", "archived");
+        },
+
+        auth: function() {
+
+            Meteor.call('auth', function (err, res) {
+              if(err) {
+                console.log(err);
+                return false;
+              }
+
+              if(res.error) {      
+                console.log(res.error);
+                return false;
+              }
+
+              document.location.href ='https://api.twitter.com/oauth/authenticate?oauth_token=' + res.oauth_token;
+            });
+      }, 
+
+      authCallback: function(oauth_token, oauth_verifier) {
+        if(!oauth_token || !oauth_verifier) {
+          Routes.navigate('500', true);
+          return false;
         }
+
+        Meteor.call('authCallback', oauth_token, oauth_verifier, function (err, res) {
+          if(err) {
+            console.log(err);
+            return false;
+          }
+
+          if(res.error) {      
+            console.log(res.error);
+            return false;
+          }
+
+          Routes.navigate('dashboard', true);
+        });
+      },
 
     });
 
