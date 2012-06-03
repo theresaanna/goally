@@ -8,11 +8,9 @@ var oauth = new OAuth(
   'https://api.twitter.com/oauth/request_token',
   'https://api.twitter.com/oauth/access_token',
   // token
-  '7439182-4aXuMZ2K8SSGW2Q0QSFj7dFZBpS7yAttVYxqsHrkF9',
   // secret
-  '4DqdLb30Rlf0t71Dps3sgTNdABIS13OuW3HsZpSR0',
   '1.0',
-  'http://localhost:3000/authCallback',
+  'http://goally.me/authCallback',
   'HMAC-SHA1'
 );
 
