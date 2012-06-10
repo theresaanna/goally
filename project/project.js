@@ -4,17 +4,28 @@ var ProjectSchema = new Db.Schema({
 
 Project = mongoose.model('Project', ProjectSchema);
 
-var project = new Project();
-project.name = "mongoosey";
+var project = {
+    create: function(req, res) {
+        var inst = new Project();
+        inst.name = obj;
+        inst.save(function(error) {
+            if (error) {
+                console.log(error);
+            }
+        });
+    },
 
-project.save(function(error) {
-    if (error) {
-        console.log(error);
-    }
-});
+    index: function(req, res) {
+        var projs;
 
-Project.find({}, function(err, docs) { 
-    for (i in docs) {
-        console.log(docs[i].name);
+        Project.find({}, function(err, docs) { 
+            for (i in docs) {
+                res.send(docs[i].name + ' ');
+            }
+        });
     }
-});
+};
+
+var projectController = app.resource('project', project);
+
+
