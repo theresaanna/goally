@@ -12,6 +12,8 @@ app.get('/', function(req, res){
 app.use(express.logger());
 
 // include top level controllers
+require('./task/task.js');
+require('./milestone/milestone.js');
 require('./project/project.js');
 
 app.listen(3000);

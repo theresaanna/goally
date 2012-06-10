@@ -1,5 +1,9 @@
 var ProjectSchema = new Db.Schema({
-    name:   String
+    name:   String,
+    owner:  String,
+    milestones: [{type: Db.Schema.ObjectId, ref: 'Milestone'}],
+    status: String,
+    created: {type: Date, default: Date.now()}
 });
 
 Project = mongoose.model('Project', ProjectSchema);
