@@ -16,7 +16,7 @@ module.exports.new = function(req, res) {
             console.log(error);
         }
     });
-    res.send(inst);
+    return inst;
 }
 
 module.exports.show = function(req, res) {
@@ -28,6 +28,6 @@ module.exports.show = function(req, res) {
 
 module.exports.index = function(req, res) {
     Project.find({name: 'thing'}, function(err, docs) {
-        res.send(docs + 'hiiii');
+        res.send(docs);
     });
 }

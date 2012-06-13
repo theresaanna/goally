@@ -5,11 +5,15 @@ db = mongoose.connect('mongodb://localhost/goally'),
 Resource = require('express-resource');
 
 app.get('/', function(req, res){
-     res.send('Hello World');
+     res.render('projectIndex.jade');
 });
 
 // console logger
 app.use(express.logger());
+app.use(express.errorHandler({
+    showStack: true,
+    dumpExceptions: true
+}));
 
 // include top level controllers
 app.resource('tasks', require('./task/task'));
