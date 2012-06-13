@@ -1,4 +1,4 @@
-var TaskSchema = new Db.Schema({
+var TaskSchema = new db.Schema({
     name: String,
     notes: String,
     status: String,

@@ -1,6 +1,6 @@
-var MilestoneSchema = new Db.Schema({
+var MilestoneSchema = new db.Schema({
     name: String,
-    tasks: [{type: Db.Schema.ObjectId, ref: 'Task'}],
+    tasks: [{type: db.Schema.ObjectId, ref: 'Task'}],
     status: String,
     created: {type: Date, default: Date.now()}
 });

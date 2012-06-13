@@ -1,7 +1,7 @@
-express = require('express'),
-app = express.createServer();
+var express = require('express'),
+    app = express.createServer();
 mongoose = require('mongoose');
-Db = mongoose.connect('mongodb://localhost/goally');
+db = mongoose.connect('mongodb://localhost/goally'),
 Resource = require('express-resource');
 
 app.get('/', function(req, res){
@@ -12,9 +12,9 @@ app.get('/', function(req, res){
 app.use(express.logger());
 
 // include top level controllers
-require('./task/task.js');
-require('./milestone/milestone.js');
-require('./project/project.js');
+app.resource('tasks', require('./task/task'));
+app.resource('milestones', require('./milestone/milestone'));
+app.resource('projects', require('./project/project'));
 
 app.listen(3000);
 console.log('Express server started on port %s', app.address().port);
