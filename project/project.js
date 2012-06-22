@@ -16,13 +16,19 @@ module.exports.new = function(req, res) {
             console.log(error);
         }
     });
-    return inst;
+
+    res.render('projectCreate.jade');
+}
+
+module.exports.create = function(req, res) {
+    console.log(req);
+    res.send('thanks');
 }
 
 module.exports.show = function(req, res) {
     var pid = req.params.project;
     Project.find({_id: pid}, function(err, docs) {
-        res.send(docs);
+         res.render('projects.jade', {projects: docs});
     });
 }
 

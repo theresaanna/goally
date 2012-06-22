@@ -5,7 +5,6 @@ db = mongoose.connect('mongodb://localhost/goally'),
 Resource = require('express-resource');
 
 app.get('/', function(req, res){
-     res.render('projectIndex.jade');
 });
 
 // console logger
